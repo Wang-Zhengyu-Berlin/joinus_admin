@@ -5,7 +5,7 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import {LoginForm, ProFormText} from '@ant-design/pro-components';
-import {history, SelectLang, useIntl, useModel} from '@umijs/max';
+import {history, SelectLang, useModel} from '@umijs/max';
 import {Alert, message, Tabs} from 'antd';
 import React, {useState} from 'react';
 import styles from './index.less';
@@ -29,8 +29,6 @@ const LoginMessage: React.FC<{
 const Login: React.FC = () => {
   const [userLoginState, setUserLoginState] = useState<API.LoginResult>({});
   const {initialState, setInitialState} = useModel('@@initialState');
-
-  const intl = useIntl();
 
   const fetchUserInfo = async () => {
     const userInfo = await initialState?.fetchUserInfo?.();
@@ -76,8 +74,8 @@ const Login: React.FC = () => {
       <div className={styles.content}>
         <LoginForm
           logo={<img alt="logo" src="/logo.svg"/>}
-          title="Ant Design"
-          subTitle={intl.formatMessage({id: 'pages.layouts.userLayout.title'})}
+          title="南邮通达社团招新管理平台"
+          subTitle="没想到写啥东西……"
           initialValues={{
             autoLogin: true,
           }}
@@ -86,16 +84,11 @@ const Login: React.FC = () => {
           }}
         >
           <Tabs activeKey="account">
-            <Tabs.TabPane
-              key="account"
-              tab="账户密码登录"
-            />
+            <Tabs.TabPane key="account" tab="账户密码登录"/>
           </Tabs>
 
           {status === 'error' && (
-            <LoginMessage
-              content="账户或密码错误"
-            />
+            <LoginMessage content="账户或密码错误"/>
           )}
           {(
             <>
