@@ -13,9 +13,7 @@ request.interceptors.request.use((url, options) => {
 
 /** 获取当前的用户 GET /api/user/current */
 export async function currentUser(options?: { [key: string]: any }) {
-  return request<{
-    data: API.UserResult;
-  }>('/api/user/current', {
+  return request<API.UserResult>('/api/user/current', {
     method: 'GET',
     ...(options || {}),
   });
