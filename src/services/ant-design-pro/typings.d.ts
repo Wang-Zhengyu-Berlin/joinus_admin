@@ -16,20 +16,46 @@ declare namespace API {
     list?: {
       count?: number;
       items?: User[];
-    }
-  }
+    };
+  };
 
   type Club = {
     id?: number;
     name?: string;
-  }
+  };
 
   type User = {
     id?: number;
     username?: string;
     permission?: Club;
     sa?: boolean;
-  }
+  };
+
+  type Department = {
+    id?: number;
+    name?: string;
+    club?: Club;
+  };
+
+  type Candidate = {
+    id?: number;
+    name?: string;
+    studentId?: string;
+    club?: Club;
+    phone?: string;
+    qq?: string;
+    conselor?: string;
+    firstChoice?: Department;
+    secondChoice?: Department;
+    reason?: string;
+  };
+
+  type CandidateListResult = {
+    success?: boolean;
+    message?: string;
+    data?: Candidate[];
+    total?: number;
+  };
 
   type PageParams = {
     current?: number;
@@ -58,16 +84,9 @@ declare namespace API {
     success?: boolean;
   };
 
-  type FakeCaptcha = {
-    code?: number;
-    status?: string;
-  };
-
   type LoginParams = {
     username?: string;
     password?: string;
-    autoLogin?: boolean;
-    type?: string;
   };
 
   type ErrorResponse = {
@@ -77,27 +96,5 @@ declare namespace API {
     errorMessage?: string;
     /** 业务上的请求是否成功 */
     success?: boolean;
-  };
-
-  type NoticeIconList = {
-    data?: NoticeIconItem[];
-    /** 列表的内容总数 */
-    total?: number;
-    success?: boolean;
-  };
-
-  type NoticeIconItemType = 'notification' | 'message' | 'event';
-
-  type NoticeIconItem = {
-    id?: string;
-    extra?: string;
-    key?: string;
-    read?: boolean;
-    avatar?: string;
-    title?: string;
-    status?: string;
-    datetime?: string;
-    description?: string;
-    type?: NoticeIconItemType;
   };
 }

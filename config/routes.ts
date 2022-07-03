@@ -14,10 +14,10 @@
     ],
   },
   {
-    path: '/welcome',
-    name: 'welcome',
+    path: '/application',
+    name: 'application',
     icon: 'smile',
-    component: './Welcome',
+    component: './ApplicationList',
   },
   {
     path: '/admin',
@@ -37,14 +37,8 @@
     ],
   },
   {
-    name: 'list.table-list',
-    icon: 'table',
-    path: '/list',
-    component: './TableList',
-  },
-  {
     path: '/',
-    redirect: '/welcome',
+    redirect: '/application',
   },
   {
     component: './404',
