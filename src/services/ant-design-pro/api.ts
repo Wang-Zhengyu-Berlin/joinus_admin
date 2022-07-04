@@ -1,7 +1,7 @@
 // @ts-ignore
 /* eslint-disable */
-import request from 'umi-request';
 import { getToken } from '@/utils/authority';
+import request from 'umi-request';
 
 request.interceptors.request.use((url, options) => {
   const authHeader = { Authorization: `Bearer ${getToken()}` };
@@ -55,6 +55,8 @@ export async function candidate(
 export async function exportCandidates(options?: { [key: string]: any }) {
   return request('/api/candidate/export', {
     method: 'GET',
+    // add by Berlin 2022/7/4
+    responseType: 'blob',
     ...(options || {}),
   });
 }

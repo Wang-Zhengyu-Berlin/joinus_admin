@@ -9,9 +9,10 @@
 export default {
   dev: {
     '/api/': {
-      target: 'http://localhost:8080',
+      // target: 'http://localhost:8080',
+      target: 'http://joinus.getaoning.com',
       changeOrigin: true,
-      pathRewrite: {'^/api': ''}
+      pathRewrite: { '^/api': '' },
     },
-  }
+  },
 };
